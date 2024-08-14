@@ -13,10 +13,16 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+
+
         $schedule->command('sync:zkteco')
-         ->everyMinute()
-         ->sendOutputTo(storage_path('logs/sync.log'))
-         ->runInBackground();
+            ->everyMinute()
+            ->sendOutputTo(storage_path('logs/sync.log'))
+            ->runInBackground();
+
+        $schedule->command('route:hit')
+            ->everyMinute()
+            ->appendOutputTo(storage_path('logs/route_hit.log'));
     }
 
     /**

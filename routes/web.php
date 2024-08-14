@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\AttendanceController;
 
 /*
@@ -17,6 +18,7 @@ use App\Http\Controllers\AttendanceController;
 
 Route::get('/attendance', [AttendanceController::class, 'getAttendance'])->name('attendance.index');
 Route::get('/users', [AttendanceController::class, 'getUsers'])->name('users.index');
+Route::get('/testSchedule', [TestController::class, 'testSchedule'])->name('testSchedule');
 
 Route::get('/', function () {
     return view('welcome');
